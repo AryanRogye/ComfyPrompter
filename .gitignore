@@ -1,0 +1,17 @@
+# Local model conversion workspace, environments, weights, and exports
+/ModelConversion/
+
+# Xcode build products and per-user settings
+/build/
+/DerivedData/
+**/xcuserdata/
+*.xcuserstate
+*.mlmodelc/
+
+# Python environments and caches
+.venv/
+__pycache__/
+*.py[cod]
+
+# macOS metadata
+.DS_Store
