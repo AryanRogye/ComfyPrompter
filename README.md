@@ -91,11 +91,3 @@ The model image input is named `face`; use ordinary RGB pixels (a BGRA
 inside the graph. Do not normalize again. `yaw` and `pitch` are single-element
 arrays in radians. The model needs a detected face crop; screen coordinates
 require additional calibration.
-
-### Core AI
-
-These artifacts use Core ML. [Core AI](https://developer.apple.com/documentation/coreai)
-uses a separate `.aimodel` export through
-[Core AI PyTorch Extensions](https://github.com/apple/coreai-torch).
-No Core AI artifact is included: installing its newer PyTorch dependencies hit
-the local disk-space limit. Performance has not been compared for this model.
