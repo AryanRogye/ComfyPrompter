@@ -66,10 +66,14 @@ final class AppModel {
 
             if isTestingGaze {
                 if let result = try? gaze.getGaze(from: buffer, boundingBox: boundingBox) {
-                    onTestingGaze?(true, .init(pitch: result.pitch, yaw: result.yaw))
+                    Task { @MainActor in
+                        self.onTestingGaze?(true, .init(pitch: result.pitch, yaw: result.yaw))
+                    }
                 }
             } else {
-                onTestingGaze?(false, nil)
+                Task { @MainActor in
+                    self.onTestingGaze?(false, nil)
+                }
             }
         }
     }
@@ -83,6 +87,10 @@ final class AppModel {
         UserDefaults.standard.removeObject(forKey: "top-right")
         UserDefaults.standard.removeObject(forKey: "bottom-left")
         UserDefaults.standard.removeObject(forKey: "bottom-right")
+        self.topLeft = nil
+        self.topRight = nil
+        self.bottomLeft = nil
+        self.bottomRight = nil
     }
 
     public func testGaze() {
@@ -136,7 +144,7 @@ final class AppModel {
     }
 
     private func getFromDefaults(forKey: String) -> EyeInfo? {
-        guard let data = UserDefaults.standard.data(forKey: "top-left") else { return nil }
+        guard let data = UserDefaults.standard.data(forKey: forKey) else { return nil }
         return try? JSONDecoder().decode(EyeInfo.self, from: data)
     }
 
