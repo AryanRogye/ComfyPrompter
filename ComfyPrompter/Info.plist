@@ -2,7 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
     <dict>
+        <key>NSMicrophoneUsageDescription</key>
+        <string>Follow your spoken script during rehearsal.</string>
+        <key>NSSpeechRecognitionUsageDescription</key>
+        <string>Match your speech to your script and advance passages.</string>
         <key>NSCameraUsageDescription</key>
-        <string>This app needs camera access to display a camera preview.</string>
+        <string>Record your rehearsal video.</string>
     </dict>
 </plist>
